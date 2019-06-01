@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import { Schema, Document, Model, model } from 'mongoose';
 
 export interface MapObjectDocument extends Document {
     position: { x: number, y: number};
@@ -11,4 +11,4 @@ const MapObjectSchema: Schema = new Schema({
     // lastName: { type: String, required: true },
 });
 
-export default mongoose.model<MapObjectDocument>('MapObject', MapObjectSchema);
+export const MapObjectModel: Model<MapObjectDocument> = model<MapObjectDocument>('MapObject', MapObjectSchema);
