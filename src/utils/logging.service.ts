@@ -56,4 +56,16 @@ export class LoggingService {
             ],
         });  
     }
+
+    public info(msg: string) {
+        this._logger.info(msg);
+    }
+
+    public debug(msg: string) {
+        this._logger.debug(msg)
+    }
+
+    public error(msg: string) {
+        this._logger.error(msg)
+    }
 }

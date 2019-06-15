@@ -3,14 +3,17 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { MongooseModule } from '@nestjs/mongoose';
-import { MapObjectController } from './controllers/map-object.controller';
+import { LoggingService } from './utils/logging.service';
+import { MapObjectModule } from './map-object/map-object.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/prim')],
-  controllers: [
-    AppController,
-    MapObjectController,
+  imports: [
+    MapObjectModule,
+    MongooseModule.forRoot('mongodb://localhost/prim')
   ],
-  providers: [AppService],
+  controllers: [
+    AppController
+  ],
+  providers: [AppService, LoggingService],
 })
 export class AppModule {}
