@@ -22,6 +22,7 @@ export class MapObjectController {
     @Post()
         async create(@Body() object: MapObject): Promise<MapObject> {
             this._log.info('POST /map-object');
+            console.log(object)
             const mapObject = new this._mapObject(object);
             return mapObject.save();
         }
