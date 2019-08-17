@@ -5,15 +5,22 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { LoggingService } from './utils/logging.service';
 import { MapObjectModule } from './map-object/map-object.module';
+import { SquadModule } from './squad/squad.module';
+import { PositionModule } from './position/position.module';
+import { LoggingModule } from './utils/logging.module';
 
 @Module({
   imports: [
+    LoggingModule,
+    SquadModule,
+    PositionModule,
     MapObjectModule,
     MongooseModule.forRoot('mongodb://localhost/prim')
   ],
   controllers: [
     AppController
   ],
-  providers: [AppService, LoggingService],
+  providers: [AppService],
+  exports: []
 })
 export class AppModule {}

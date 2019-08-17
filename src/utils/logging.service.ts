@@ -12,6 +12,7 @@ export class LoggingService {
     private _logger: Winston.Logger;
 
     constructor() {
+        console.log('instantiated')
         this._logger = Winston.createLogger({
             transports: [
                 new Winston.transports.Console({

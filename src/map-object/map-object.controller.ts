@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Delete, Param, Put } from '@nestjs/common';
 
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
@@ -24,6 +24,19 @@ export class MapObjectController {
             this._log.info('POST /map-object');
             const mapObject = new this._mapObject(object);
             return mapObject.save();
+        }
+
+    @Put()
+        async update(@Body() object: MapObject): Promise<void> {
+            this._log.info('PUT /map-object');
+            
+            try {
+                await this._mapObject.findOneAndUpdate({uid: object.uid}, object);
+            } catch {
+                
+            }
+
+            return
         }
 
     @Delete(':id')

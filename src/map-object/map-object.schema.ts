@@ -5,6 +5,13 @@ export const MapObjectSchema: Schema = new Schema({
     uid: {type: String, required: true, unique: true},
     name: {type: String},
     type: {type: String, required: true},
+    meta: {
+        size: {type: Number},
+        description: {type: String},
+        wounded: {type: Number},
+        callsign: {type: String},
+        subtype: {type: Number}
+    }
 
     // email: { type: String, required: true, unique: true },
     // firstName: { type: String, required: true },
