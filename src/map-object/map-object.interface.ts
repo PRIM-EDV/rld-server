@@ -9,6 +9,7 @@ export interface MapObject extends Document {
         size?: number,
         description?: string,
         wounded?: number,
-        subtype: number
-    }
+        subtype: number,
+        tracked: boolean
+    };
 }

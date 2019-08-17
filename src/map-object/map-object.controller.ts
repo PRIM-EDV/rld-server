@@ -29,14 +29,14 @@ export class MapObjectController {
     @Put()
         async update(@Body() object: MapObject): Promise<void> {
             this._log.info('PUT /map-object');
-            
+
             try {
                 await this._mapObject.findOneAndUpdate({uid: object.uid}, object);
             } catch {
-                
+
             }
 
-            return
+            return;
         }
 
     @Delete(':id')

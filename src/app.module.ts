@@ -8,11 +8,13 @@ import { MapObjectModule } from './map-object/map-object.module';
 import { SquadModule } from './squad/squad.module';
 import { PositionModule } from './position/position.module';
 import { LoggingModule } from './utils/logging.module';
+import { SerialModule } from './utils/serial.module';
 
 @Module({
   imports: [
     LoggingModule,
     SquadModule,
+    SerialModule,
     PositionModule,
     MapObjectModule,
     MongooseModule.forRoot('mongodb://localhost/prim')
