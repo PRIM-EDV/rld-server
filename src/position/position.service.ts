@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { SerialService } from 'src/utils/serial.service';
+import { SerialService } from '../utils/serial.service';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Position, PositionDocument } from './position.interface';
 import { MapObject } from '../map-object/map-object.interface';
 
-const TRACKER = {'17': 'JK-19'};
+const TRACKER = {'16': 'JK-19'};
 
 export interface SerialData {
     bw: number;
@@ -66,10 +66,9 @@ export class PositionService {
 
     private _handleSerial(s: string) {
         const data = this._parseSerial(s);
-        console.log(data);
         if (data) {
             const activePosition = this.activePositions.find(p => p.tid == data.id);
-
+            console.log(data)
             if (activePosition) {
                 this._updatePosition(activePosition, data);
             } else {
@@ -113,17 +112,17 @@ export class PositionService {
     private async _updateFriendly(callsign: string, data?: SerialData): Promise<void> {
         if (data) {
             try {
-                await this._mapObject.findOneAndUpdate(
-                    {meta: {callsign: callsign}},
-                    {x: data.px, y: data.py, meta: {tracked: true}});
-            } catch {
+                console.log(await this._mapObject.findOneAndUpdate(
+                    {"meta.callsign": callsign},
+                    {"position.x": data.px, "position.y": data.py, "meta.tracked": true}));
+            } catch(e) {
                 return;
             }
         } else {
             try {
                 await this._mapObject.findOneAndUpdate(
-                    {meta: {callsign: callsign}},
-                    {meta: {tracked: false}});
+                    {"meta.callsign": callsign},
+                    {"meta.tracked": false});
             } catch {
                 return;
             }

@@ -3,7 +3,7 @@ import { Controller, Get, Post, Body, Delete, Param, Put } from '@nestjs/common'
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { MapObject } from './map-object.interface';
-import { LoggingService } from 'src/utils/logging.service';
+import { LoggingService } from '../utils/logging.service';
 
 @Controller('map-object')
 export class MapObjectController {

@@ -9,9 +9,11 @@ import { SquadModule } from './squad/squad.module';
 import { PositionModule } from './position/position.module';
 import { LoggingModule } from './utils/logging.module';
 import { SerialModule } from './utils/serial.module';
+import { RadioOperatorModule } from './radio-operator/radio-operator.module'
 
 @Module({
   imports: [
+    RadioOperatorModule,
     LoggingModule,
     SquadModule,
     SerialModule,

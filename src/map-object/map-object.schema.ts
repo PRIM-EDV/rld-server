@@ -11,7 +11,10 @@ export const MapObjectSchema: Schema = new Schema({
         wounded: {type: Number},
         callsign: {type: String},
         subtype: {type: Number},
-        tracked: {type: Boolean}
+        tracked: {type: Boolean},
+        medics: {type: Number},
+        technitians: {type: Number},
+        scientists: {type: Number}
     }
 
     // email: { type: String, required: true, unique: true },
