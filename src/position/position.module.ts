@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { PositionSchema } from './position.schema';
 import { PositionController } from './position.controller';
 import { PositionService } from './position.service';
-import { MapObjectSchema } from '../map-object/map-object.schema';
+import { MapObjectSchema } from '../models/map-object/map-object.schema';
 
 @Module({
     imports: [

@@ -3,7 +3,7 @@ import { SerialService } from '../utils/serial.service';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Position, PositionDocument } from './position.interface';
-import { MapObject } from '../map-object/map-object.interface';
+import { MapObject } from '../models/map-object/map-object.interface';
 
 const TRACKER = {'16': 'JK-19'};
 

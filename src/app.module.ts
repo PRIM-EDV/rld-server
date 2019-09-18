@@ -10,14 +10,15 @@ import { PositionModule } from './position/position.module';
 import { LoggingModule } from './utils/logging.module';
 import { SerialModule } from './utils/serial.module';
 import { RadioOperatorModule } from './radio-operator/radio-operator.module'
+import { MapObjectGateway } from './map-object/map-object.gateway';
 
 @Module({
   imports: [
-    RadioOperatorModule,
+    // RadioOperatorModule,
     LoggingModule,
-    SquadModule,
-    SerialModule,
-    PositionModule,
+    // SquadModule,
+    // SerialModule,
+    // PositionModule,
     MapObjectModule,
     MongooseModule.forRoot('mongodb://localhost/prim')
   ],

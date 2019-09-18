@@ -1,8 +1,5 @@
 import { Document } from 'mongoose';
-
-export interface RadioOperator {
-    callsign: string;
-    trackerId?: number;
-}
+import { RadioOperator } from 'src/core/models/db.radio-operator';
+ 
 
 export interface RadioOperatorDocument extends RadioOperator, Document {}
