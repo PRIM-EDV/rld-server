@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  mongodb:
+    image: mongo:4.4.3
+    restart: always
+    container_name: "rld_mongodb"
+    volumes:
+      - "./db/data:/data"
+  web:
+    image: prim/rld-server:1.1.0
+    build: 
+        context: "."
+    restart: always
+    container_name: "rld_server"
+    depends_on: 
+        - mongodb
+    
